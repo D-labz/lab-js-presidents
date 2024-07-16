@@ -456,15 +456,38 @@ function sortPresidentsByBirthYear(presidentsArr) {
 function getAgeAtInauguration(presidentsArr) {
   const presidentInauguration = presidentsArr.map(function (president) {
     president.ageAtInauguration = president.tookOffice - president.birthYear;
+    return president;
   });
-  //return presidentInauguration;
+  return presidentInauguration;
 }
 
 // Bonus: Iteration 6 | Presidents Born After - `filter()`
-function getPresidentsBornAfter(presidentsArr, year) {}
+
+//const webDevStudents = students.filter( function(element) {
+//return element.course === "Web Dev";
+function getPresidentsBornAfter(presidentsArr, year) {
+  const bornArr = presidentsArr.filter(function (element) {
+    return element.birthYear > year;
+  });
+  return bornArr;
+}
 
 // Bonus: Iteration 7 | Count Republican Presidents
-function countRepublicanPresidents(presidentsArr) {}
+function countRepublicanPresidents(presidentsArr) {
+  const gradesTotal = presidentsArr.reduce(function (accumulator, element) {
+    if (element.party === "Republican") {
+      return accumulator + 1;
+    } else {
+      return accumulator;
+    }
+  }, 0);
+  return gradesTotal;
+}
 
 // Bonus: Iteration 8 | Sort Presidents by Name - `sort()`
-function sortPresidentsByName(presidentsArr) {}
+function sortPresidentsByName(presidentsArr) {
+  const result = presidentsArr.sort((a, b) => {
+    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+  });
+  return result;
+}
